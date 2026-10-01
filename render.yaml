@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: askdocs
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: CONTACT_EMAIL
+        sync: false
+      - key: CONTACT_WHATSAPP
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false

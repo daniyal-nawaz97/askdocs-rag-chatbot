@@ -34,7 +34,7 @@ WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN", "").strip()
 WHATSAPP_PHONE_ID = os.getenv("WHATSAPP_PHONE_ID", "").strip()
 WHATSAPP_VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "askdocs-verify").strip()
 WHATSAPP_KB = os.getenv("WHATSAPP_KB", "").strip()  # knowledge base slug used for WhatsApp questions
-PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL", "").rstrip("/")
+PUBLIC_BASE_URL = (os.getenv("PUBLIC_BASE_URL") or os.getenv("RENDER_EXTERNAL_URL", "")).rstrip("/")  # Render sets RENDER_EXTERNAL_URL
 
 MAX_FILE_MB = 25
 STAFF_MINUTES_PER_QUESTION = float(os.getenv("STAFF_MINUTES_PER_QUESTION", "4"))
