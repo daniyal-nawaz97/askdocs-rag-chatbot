@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AskDocs: a chatbot that knows your documents</title>
+  <meta name="description" content="Staff and customers ask questions in plain language and get short, correct answers from your own documents, with the source shown every time.">
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/ui.css">
+  <style>
+    :root { --accent: #0f766e; }
+    body { background: #fff; }
+    .l-nav { display: flex; align-items: center; justify-content: space-between; max-width: 1160px; margin: 0 auto; padding: 18px 24px; }
+    .hero { max-width: 1160px; margin: 0 auto; padding: 40px 24px 20px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: 46px; line-height: 1.08; letter-spacing: -0.03em; }
+    .hero p.lead { font-size: 19px; color: var(--text-2); margin: 18px 0 26px; }
+    .eyebrow { display: inline-flex; background: var(--accent-50); color: var(--accent-600); padding: 5px 12px; border-radius: 999px; font-weight: 600; font-size: 13px; margin-bottom: 18px; }
+    .shot { border-radius: 14px; box-shadow: 0 20px 60px rgba(16,24,40,.18); border: 1px solid var(--border); overflow: hidden; background: #fff; }
+    .shot img, .shot video { display: block; width: 100%; }
+    section { max-width: 1160px; margin: 0 auto; padding: 64px 24px; }
+    .band { background: var(--bg); max-width: none; }
+    .band > div { max-width: 1160px; margin: 0 auto; }
+    .section-title { text-align: center; max-width: 660px; margin: 0 auto 36px; }
+    .section-title h2 { font-size: 32px; letter-spacing: -0.02em; } .section-title p { color: var(--text-2); margin-top: 10px; font-size: 17px; }
+    .benefit { padding: 26px; } .benefit .bi { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-50); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; font-size: 22px; }
+    .benefit h3 { font-size: 18px; margin-bottom: 6px; } .benefit p { color: var(--text-2); }
+    .numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .numbers .card { padding: 22px; text-align: center; } .numbers .big { font-size: 34px; font-weight: 800; color: var(--accent); }
+    .uses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .use { padding: 18px 20px; } .use b { display: block; margin-bottom: 4px; } .use span { color: var(--text-2); font-size: 14.5px; }
+    .price { padding: 28px; display: flex; flex-direction: column; gap: 14px; } .price.featured { border: 2px solid var(--accent); box-shadow: var(--shadow); }
+    .price ul { margin: 0; padding-left: 18px; color: var(--text-2); display: grid; gap: 6px; } .price .amt { font-size: 28px; font-weight: 800; }
+    .cta { text-align: center; background: var(--accent); color: #fff; border-radius: 20px; padding: 54px 24px; }
+    .cta h2 { font-size: 32px; } .cta p { opacity: .9; margin: 10px 0 24px; font-size: 17px; } .cta .btn { background: #fff; color: var(--accent); border-color: #fff; }
+    footer { border-top: 1px solid var(--border); padding: 26px 24px; text-align: center; color: var(--text-3); font-size: 14px; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero h1 { font-size: 34px; } .numbers { grid-template-columns: repeat(2, 1fr); } .uses { grid-template-columns: 1fr; } section { padding: 44px 16px; } .l-nav { padding: 14px 16px; } }
+  </style>
+</head>
+<body>
+  <nav class="l-nav"><a class="brand" href="/landing"><span class="brand-mark">A</span><span>AskDocs</span></a>
+    <div class="row"><a class="btn btn-ghost hide-sm" href="/demo-site" target="_blank">Website widget</a><a class="btn btn-primary" href="/#/login">Open live demo</a></div></nav>
+  <div class="hero">
+    <div>
+      <span class="eyebrow">For HR, support teams, schools and e-commerce</span>
+      <h1>A chatbot that knows your company's documents.</h1>
+      <p class="lead">Staff and customers ask in plain language (English, Urdu or Roman Urdu) and get short answers from your PDFs, policies and FAQs. Every answer shows its source. If it isn't in the documents, it says so.</p>
+      <div class="row wrap"><a class="btn btn-primary btn-lg cta-link" href="/#/login">Book a demo on your documents</a><a class="btn btn-lg" href="#demo">Watch the demo</a></div>
+    </div>
+    <div class="shot"><img src="/static/img/screens/chat.png" alt="AskDocs chat: answer with source chips and the exact passage from the HR policy"></div>
+  </div>
+  <section>
+    <div class="section-title"><h2>Answers people can trust</h2><p>Most companies have the answers. Nobody can find them quickly.</p></div>
+    <div class="grid grid-3">
+      <div class="card benefit"><div class="bi">📄</div><h3>Always shows the source</h3><p>Every answer has the file and page. One click opens the document at the exact passage, highlighted.</p></div>
+      <div class="card benefit"><div class="bi">🛑</div><h3>Says “I don't know”</h3><p>When the documents don't cover it, the bot says so and offers a human contact. No made-up answers.</p></div>
+      <div class="card benefit"><div class="bi">📊</div><h3>Shows the gaps</h3><p>See what staff ask most and which questions had no answer, then add the missing document in one click.</p></div>
+    </div>
+  </section>
+  <section class="band" id="demo"><div style="max-width:1000px">
+    <div class="section-title"><h2>See it in 2 minutes</h2><p>Questions, follow-ups, sources, the honest fallback, insights and the website widget.</p></div>
+    <div class="shot" id="videoBox"><video controls preload="none" poster="/static/img/screens/insights.png" src="/static/media/demo.webm"></video></div></div></section>
+  <section>
+    <div class="section-title"><h2>Measured, not promised</h2><p id="rn">From our evaluation script on held-out test questions. We run the same test on your documents.</p></div>
+    <div class="numbers" id="numbers"></div>
+  </section>
+  <section class="band"><div>
+    <div class="section-title"><h2>Where it works</h2></div>
+    <div class="uses">
+      <div class="card use"><b>Internal HR &amp; IT assistant</b><span>Leave, reimbursements, passwords, VPN. The same questions, answered instantly.</span></div>
+      <div class="card use"><b>Customer support</b><span>Shipping, returns and warranty answers on your website, 24/7.</span></div>
+      <div class="card use"><b>Schools &amp; universities</b><span>Admissions, fee schedules and rules from the prospectus.</span></div>
+      <div class="card use"><b>Law &amp; accounting firms</b><span>Search across circulars and contracts with page-level sources.</span></div>
+      <div class="card use"><b>E-commerce</b><span>Product and policy questions on the website or WhatsApp.</span></div>
+      <div class="card use"><b>Clinics &amp; real estate</b><span>Packages, timings, procedures and payment plans.</span></div>
+    </div></div></section>
+  <section id="pricing">
+    <div class="section-title"><h2>Plans</h2><p>One-time setup, then monthly hosting and usage. Start with a paid pilot on 20-50 of your documents.</p></div>
+    <div class="grid grid-3">
+      <div class="card price"><h3>Starter</h3><div class="amt">PKR 25,000<span class="small muted"> /month</span></div><ul><li>One knowledge base</li><li>Up to 50 documents</li><li>Website widget</li><li>English &amp; Roman Urdu</li></ul></div>
+      <div class="card price featured"><span class="badge info plain" style="align-self:flex-start">Most popular</span><h3>Business</h3><div class="amt">PKR 60,000<span class="small muted"> /month</span></div><ul><li>Several knowledge bases</li><li>Users, roles &amp; confidential access</li><li>Insights &amp; knowledge-gap reports</li><li>English, Urdu, Roman Urdu</li></ul></div>
+      <div class="card price"><h3>Enterprise</h3><div class="amt">Custom</div><ul><li>Private / self-hosted setup</li><li>WhatsApp integration</li><li>Single sign-on &amp; custom integrations</li><li>Priority support</li></ul></div>
+    </div>
+  </section>
+  <section><div class="cta"><h2>Let's try it on 5 of your documents.</h2><p>Send your FAQ, a policy or your brochure. We'll set up a demo your team can try.</p><a class="btn btn-lg cta-link" href="/#/login">Book a demo</a></div></section>
+  <footer>AskDocs · <a href="/privacy">Privacy &amp; security</a> · <a href="/#/login">Live demo</a> · <a href="/demo-site">Website widget demo</a></footer>
+  <script>
+    fetch("/api/app-info").then((r) => r.json()).then((i) => {
+      let href = null;
+      if (i.contact_whatsapp) href = `https://wa.me/${i.contact_whatsapp}?text=${encodeURIComponent("Hi, I'd like a demo of AskDocs on our documents.")}`;
+      else if (i.contact_email) href = `mailto:${i.contact_email}?subject=${encodeURIComponent("AskDocs demo on our documents")}`;
+      if (href) document.querySelectorAll(".cta-link").forEach((a) => { a.href = href; a.target = "_blank"; });
+    }).catch(() => {});
+    fetch("/static/results.json").then((r) => (r.ok ? r.json() : null)).then((d) => {
+      if (!d) { document.getElementById("numbers").closest("section").remove(); return; }
+      const s = d.summary.headline;
+      document.getElementById("rn").textContent = `From our evaluation script on ${s.questions} held-out test questions (${d.summary.engine.toLowerCase()}). We run the same test on your documents.`;
+      const items = [[`${s.answer_accuracy}%`, "correct answers"], [`${s.source_found}%`, "correct source document"], [`${s.out_of_scope_refused}%`, "out-of-scope questions refused"], [`${s.avg_seconds < 0.1 ? "< 0.1" : s.avg_seconds} s`, "average answer time"]];
+      document.getElementById("numbers").innerHTML = items.map(([n, l]) => `<div class="card"><div class="big">${n}</div><div class="muted small">${l}</div></div>`).join("");
+    }).catch(() => {});
+    const v = document.querySelector("#videoBox video");
+    fetch(v.getAttribute("src"), { method: "HEAD" }).then((r) => { if (!r.ok) throw 0; }).catch(() => { document.getElementById("videoBox").innerHTML = `<a href="/#/login"><img src="/static/img/screens/insights.png" alt="Insights screen"></a>`; });
+  </script>
+  <script src="/widget.js" data-kb="products" async></script>
+</body>
+</html>

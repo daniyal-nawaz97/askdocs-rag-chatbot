@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --accent: #0f766e; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font-family: Inter, system-ui, sans-serif; color: #111827; background: #fff; }
+  .w { display: flex; flex-direction: column; height: 100%; }
+  .head { background: var(--accent); color: #fff; padding: 16px 16px 14px; display: flex; align-items: center; gap: 10px; }
+  .av { width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,.18); display: grid; place-items: center; flex: none; overflow: hidden; }
+  .av img { max-width: 30px; max-height: 30px; }
+  .head b { display: block; font-size: 15.5px; } .head span { font-size: 12.5px; opacity: .88; }
+  .x { margin-left: auto; background: none; border: 0; color: #fff; cursor: pointer; opacity: .85; padding: 4px; }
+  .body { flex: 1; overflow-y: auto; padding: 16px 14px; background: #f6f7f9; display: flex; flex-direction: column; gap: 10px; }
+  .m { max-width: 86%; padding: 10px 13px; border-radius: 14px; font-size: 14.5px; line-height: 1.5; white-space: pre-wrap; word-wrap: break-word; }
+  .m.bot { background: #fff; border: 1px solid #e5e7eb; border-bottom-left-radius: 4px; align-self: flex-start; }
+  .m.me { background: var(--accent); color: #fff; border-bottom-right-radius: 4px; align-self: flex-end; }
+  .m.nf { background: #fffdf7; border-color: #fde68a; }
+  .src { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .src a { font-size: 12px; text-decoration: none; color: var(--accent); background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; padding: 2px 7px; }
+  .sugg { display: flex; flex-direction: column; gap: 6px; align-self: stretch; }
+  .sugg button { text-align: left; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 9px 12px; font: inherit; font-size: 13.5px; cursor: pointer; color: #374151; }
+  .sugg button:hover { border-color: var(--accent); color: var(--accent); }
+  .human { margin-top: 8px; font: inherit; font-size: 13px; border: 1px solid #d1d5db; background: #fff; border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+  form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #e5e7eb; }
+  input { flex: 1; border: 1px solid #d1d5db; border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 14.5px; outline: none; }
+  input:focus { border-color: var(--accent); }
+  form button { width: 42px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; cursor: pointer; display: grid; place-items: center; }
+  .foot { text-align: center; font-size: 11px; color: #9ca3af; padding: 0 0 8px; }
+  .dots::after { content: "…"; animation: d 1s steps(3) infinite; }
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="head"><div class="av" id="av"></div><div><b id="bn">Assistant</b><span>Answers from our official documents</span></div>
+    <button class="x" aria-label="Close" onclick="parent.postMessage('askdocs:close', '*')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+  <div class="body" id="body"></div>
+  <form id="f"><input id="q" placeholder="Type your question…" autocomplete="off" aria-label="Your question" maxlength="600"><button aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></button></form>
+  <div class="foot">Powered by AskDocs</div>
+</div>
+<script>
+  const params = new URLSearchParams(location.search);
+  const kb = params.get("kb") || "";
+  const body = document.getElementById("body");
+  let cid = null, busy = false, cfg = {};
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  function add(cls, html) { const d = document.createElement("div"); d.className = "m " + cls; d.innerHTML = html; body.appendChild(d); body.scrollTop = 1e9; return d; }
+  fetch("/api/public/config?kb=" + encodeURIComponent(kb)).then((r) => r.json()).then((c) => {
+    cfg = c;
+    document.documentElement.style.setProperty("--accent", params.get("color") || c.accent_color);
+    document.getElementById("bn").textContent = c.bot_name;
+    document.getElementById("av").innerHTML = c.logo_url ? `<img src="${esc(c.logo_url)}" alt="">` : "💬";
+    add("bot", esc(c.greeting));
+    const s = document.createElement("div"); s.className = "sugg";
+    s.innerHTML = c.suggested.map((q) => `<button>${esc(q)}</button>`).join("");
+    s.querySelectorAll("button").forEach((b) => (b.onclick = () => ask(b.textContent)));
+    body.appendChild(s);
+  });
+  async function ask(q) {
+    q = (q || "").trim(); if (!q || busy) return;
+    busy = true; document.querySelector(".sugg")?.remove();
+    add("me", esc(q));
+    const bot = add("bot", '<span class="dots">Looking it up</span>');
+    let text = "";
+    try {
+      const res = await fetch("/api/public/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: q, kb, conversation_id: cid }) });
+      if (!res.ok) { let d = "Sorry, something went wrong. Please try again."; try { d = (await res.json()).detail; } catch {} throw new Error(d); }
+      const reader = res.body.getReader(), dec = new TextDecoder(); let buf = "";
+      while (true) {
+        const { value, done } = await reader.read(); if (done) break;
+        buf += dec.decode(value, { stream: true }); let i;
+        while ((i = buf.indexOf("\n\n")) >= 0) {
+          const ev = JSON.parse(buf.slice(0, i).replace(/^data: /, "")); buf = buf.slice(i + 2);
+          if (ev.type === "meta") cid = ev.conversation_id;
+          if (ev.type === "token") { text += ev.text; bot.innerHTML = esc(text.replace(/\[\d+\]/g, "")); body.scrollTop = 1e9; }
+          if (ev.type === "done") {
+            let html = esc((ev.text || text).replace(/\[\d+\]/g, "").trim());
+            if (ev.not_found) { bot.classList.add("nf"); html += `<br><button class="human" data-mid="${ev.message_id}">Talk to our team</button>`; }
+            else if (ev.sources.length) html += `<div class="src">${ev.sources.map((s) => `<a href="/api/public/documents/${s.doc_id}/file${s.page ? "#page=" + s.page : ""}" target="_blank">📄 ${esc(s.filename)}${s.page ? " p." + s.page : ""}</a>`).join("")}</div>`;
+            bot.innerHTML = html;
+            bot.querySelector(".human")?.addEventListener("click", async (e) => {
+              await fetch("/api/handoff", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message_id: +e.target.dataset.mid }) });
+              e.target.outerHTML = `<div style="margin-top:6px;font-size:13px;color:#15803d">✓ Our team has been notified. ${esc(cfg.human_contact || "")}</div>`;
+            });
+          }
+        }
+      }
+    } catch (e) { bot.textContent = e.message || "I'm having trouble right now. Please try again."; }
+    busy = false; body.scrollTop = 1e9;
+  }
+  document.getElementById("f").onsubmit = (e) => { e.preventDefault(); const q = document.getElementById("q"); ask(q.value); q.value = ""; };
+</script>
+</body>
+</html>

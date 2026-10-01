@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nimbus Home Appliances (sample website)</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: Poppins, system-ui, sans-serif; color: #1f2937; background: #fff; }
+  .bar { background: #fff7ed; color: #9a3412; text-align: center; font-size: 13px; padding: 7px; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 6vw; border-bottom: 1px solid #eee; }
+  .logo { font-weight: 700; font-size: 22px; color: #0f766e; } .logo span { color: #f59e0b; }
+  nav a { margin-left: 26px; color: #374151; text-decoration: none; font-size: 15px; }
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; padding: 60px 6vw; background: linear-gradient(135deg, #ecfdf5, #f0f9ff); }
+  .hero h1 { font-size: 46px; line-height: 1.1; margin: 0 0 16px; } .hero p { font-size: 18px; color: #4b5563; }
+  .cta { display: inline-block; margin-top: 20px; background: #0f766e; color: #fff; padding: 14px 26px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+  .prod { background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,.08); text-align: center; }
+  .prod .img { height: 150px; border-radius: 14px; background: linear-gradient(180deg, #f8fafc, #e2e8f0); display: grid; place-items: center; font-size: 64px; }
+  .prod h3 { margin: 16px 0 4px; } .price { color: #0f766e; font-weight: 700; font-size: 22px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 50px 6vw; }
+  .c { border: 1px solid #eee; border-radius: 16px; padding: 22px; text-align: center; } .c div { font-size: 40px; }
+  .c h4 { margin: 12px 0 4px; } .c p { color: #6b7280; font-size: 14px; margin: 0; }
+  footer { padding: 30px 6vw; color: #9ca3af; font-size: 13px; border-top: 1px solid #eee; }
+  @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } .hero h1 { font-size: 32px; } .cards { grid-template-columns: 1fr 1fr; } nav { display: none; } }
+</style>
+</head>
+<body>
+  <div class="bar">Sample website of a fictitious company, used to demonstrate the AskDocs chat widget (bottom right).</div>
+  <header><div class="logo">Nimbus<span>.</span></div><nav><a href="#">Air conditioners</a><a href="#">Refrigerators</a><a href="#">Washing machines</a><a href="#">Support</a></nav></header>
+  <section class="hero">
+    <div><h1>Stay cool this summer, for less.</h1><p>The Nimbus AirCool Inverter saves up to 60% electricity and runs on low voltage. Free installation in Lahore, Karachi and Islamabad.</p>
+      <a class="cta" href="#">Shop air conditioners</a></div>
+    <div class="prod"><div class="img">❄️</div><h3>AirCool 1.5 Ton Inverter AC</h3><div class="price">PKR 189,000</div><p style="color:#6b7280;font-size:14px">0% installments for 12 months</p></div>
+  </section>
+  <section class="cards">
+    <div class="c"><div>🚚</div><h4>Fast delivery</h4><p>2-4 days in major cities</p></div>
+    <div class="c"><div>🛡️</div><h4>10-year warranty</h4><p>On inverter compressors</p></div>
+    <div class="c"><div>💳</div><h4>Easy payments</h4><p>Cards, JazzCash, COD</p></div>
+    <div class="c"><div>🔧</div><h4>Expert service</h4><p>Technician within 72 hours</p></div>
+  </section>
+  <footer>© Nimbus Home Appliances (fictitious). Questions? Use the chat button.</footer>
+  <script src="/widget.js" data-kb="products" async></script>
+</body>
+</html>

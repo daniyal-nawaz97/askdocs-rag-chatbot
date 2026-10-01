@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AskDocs: one-pager</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, Arial, sans-serif; color: #111827; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; padding: 12mm 14mm; display: flex; flex-direction: column; gap: 5mm; overflow: hidden; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; }
+  .mark { width: 28px; height: 28px; border-radius: 8px; background: #0f766e; color: #fff; display: grid; place-items: center; font-size: 14px; }
+  .tag { font-size: 11px; color: #0f766e; background: #ecfdf5; padding: 4px 10px; border-radius: 99px; font-weight: 600; }
+  h1 { font-size: 27px; line-height: 1.12; margin: 0; letter-spacing: -0.02em; }
+  .lead { font-size: 13.5px; color: #4b5563; margin: 2mm 0 0; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .box { border: 1px solid #e5e7eb; border-radius: 10px; padding: 4mm 5mm; }
+  .box h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: #0f766e; margin: 0 0 2mm; }
+  .box p, .box li { font-size: 12px; color: #374151; line-height: 1.5; margin: 0; }
+  .box ul { margin: 0; padding-left: 16px; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .shots img { width: 100%; height: 58mm; object-fit: cover; object-position: top left; border: 1px solid #e5e7eb; border-radius: 8px; display: block; }
+  .cap { font-size: 10px; color: #6b7280; margin-top: 1mm; }
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .num { background: #f6f7f9; border-radius: 10px; padding: 3.5mm; text-align: center; }
+  .num b { display: block; font-size: 22px; color: #0f766e; letter-spacing: -0.02em; }
+  .num span { font-size: 10.5px; color: #4b5563; }
+  .foot { margin-top: auto; background: #0f766e; color: #fff; border-radius: 12px; padding: 5mm 6mm; display: flex; justify-content: space-between; align-items: center; }
+  .foot b { font-size: 15px; } .foot span { font-size: 12px; opacity: .92; }
+  .note { font-size: 9.5px; color: #9ca3af; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top"><div class="brand"><span class="mark">A</span>AskDocs</div><span class="tag">Chatbot on your documents</span></div>
+  <div>
+    <h1>A chatbot that knows your company's documents, and shows its sources.</h1>
+    <p class="lead">Staff and customers ask in English, Urdu or Roman Urdu. Answers come only from your PDFs, policies and FAQs, with the file and page every time.</p>
+  </div>
+  <div class="cols">
+    <div class="box"><h2>The problem</h2><p>HR, IT and support answer the same questions every day. The answers are in documents nobody can find quickly, and generic chatbots make things up.</p></div>
+    <div class="box"><h2>The solution</h2><ul><li>Answers only from your documents, with page-level sources</li><li>Says "I couldn't find this" and offers a human</li><li>Follow-ups, Urdu &amp; Roman Urdu, confidential access control</li><li>Insights on top questions and knowledge gaps; website widget</li></ul></div>
+  </div>
+  <div class="shots">
+    <div><img src="screenshots/chat.png" alt=""><div class="cap">Every answer shows its source; the passage is one click away.</div></div>
+    <div><img src="screenshots/insights.png" alt=""><div class="cap">Insights: top questions and the gaps in your documents.</div></div>
+  </div>
+  <div>
+    <div class="box" style="border:0;padding:0 0 2mm"><h2>Measured results (held-out test questions)</h2></div>
+    <div class="nums">
+      <div class="num"><b>88.9%</b><span>correct answers</span></div>
+      <div class="num"><b>94.4%</b><span>correct source document shown</span></div>
+      <div class="num"><b>3 of 4</b><span>out-of-scope questions refused</span></div>
+      <div class="num"><b>&lt; 0.1 s</b><span>average answer time (offline mode)</span></div>
+    </div>
+    <p class="note" style="margin-top:2mm">Fictitious demo company, 22 held-out questions written after tuning (full history in results.md). We run the same test on 30 questions from your own team.</p>
+  </div>
+  <div class="cols">
+    <div class="box"><h2>Private by default</h2><p>Each client has a separate installation. Restricted documents are enforced on the server. Never used to train AI. Self-hosting available.</p></div>
+    <div class="box"><h2>Plans</h2><p>Starter · Business · Enterprise (WhatsApp, private hosting). One-time setup plus monthly hosting. Paid pilot on 20-50 documents.</p></div>
+  </div>
+  <div class="foot"><div><b>Free demo on 5 of your documents</b><br><span>Send your FAQ or a policy. Get a working link the same week.</span></div><span id="contact">Live demo available on request</span></div>
+</div>
+</body>
+</html>

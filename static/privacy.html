@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy &amp; Security · AskDocs</title>
+  <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/ui.css">
+  <style>:root{--accent:#0f766e}.doc{max-width:720px;margin:0 auto;padding:40px 20px 80px}.doc h2{margin:28px 0 8px}.doc p,.doc li{color:var(--text-2)}.doc ul{padding-left:20px;display:grid;gap:6px}</style>
+</head>
+<body><div class="doc">
+  <a class="brand" href="/"><span class="brand-mark">A</span><span>AskDocs</span></a>
+  <h1 style="margin-top:28px">Privacy &amp; security</h1>
+  <p style="margin-top:8px">Short version: your documents are only used to answer your own team's and customers' questions. They are kept separate from every other client and never used to train AI.</p>
+  <h2>Answers come only from your documents</h2>
+  <p>The assistant searches your uploaded documents and answers only from the passages it finds. Every answer shows its source file and page. If the documents don't contain the answer, it says so instead of guessing.</p>
+  <h2>What we store</h2>
+  <ul><li>The documents you upload and the text extracted from them.</li><li>Questions, answers and feedback, so admins can see insights and improve documents.</li><li>User names, emails and roles.</li></ul>
+  <h2>Who can see what</h2>
+  <ul><li>Each client company runs in its own installation and database.</li><li>Restricted knowledge bases (e.g. salary bands) are visible only to admins and the people they choose. This is checked on the server for every question, not just hidden in the screen.</li>
+    <li>The website widget can only use knowledge bases marked <b>Public</b>.</li></ul>
+  <h2>AI processing</h2>
+  <p>Without an AI key, everything runs on our own server: search uses a local model and answers are quoted directly from your documents. With AI answers switched on, the question and the few matching passages are sent to our AI provider (Groq) to write the answer; they are not used to train models under their API terms. Private, self-hosted setup is available for sensitive data.</p>
+  <h2>Retention and deletion</h2>
+  <p>Admins choose how long chat history is kept (30 days, 90 days, 1 year or until deleted). Documents stay until you delete them. On request we delete everything and confirm in writing.</p>
+  <h2>Security</h2>
+  <ul><li>Encrypted connections (HTTPS) in production.</li><li>Passwords stored as salted hashes.</li><li>The public widget is rate-limited to prevent abuse.</li></ul>
+  <p class="small muted" style="margin-top:32px">This statement describes how the software works. It is not legal advice; adapt it with your adviser before signing client contracts.</p>
+</div></body>
+</html>

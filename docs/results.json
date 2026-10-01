@@ -1,0 +1,1093 @@
+{
+  "summary": {
+    "date": "2026-09-30",
+    "engine": "Offline answers (quoted from documents) + hybrid search",
+    "headline": {
+      "questions": 22,
+      "answerable": 18,
+      "out_of_scope": 4,
+      "answer_accuracy": 88.9,
+      "source_found": 94.4,
+      "source_page_found": 88.9,
+      "out_of_scope_refused": 75.0,
+      "overall": 86.4,
+      "avg_seconds": 0.01,
+      "by_type": {
+        "easy": "16/17",
+        "roman-urdu": "0/1",
+        "out-of-scope": "3/4"
+      }
+    },
+    "holdout": {
+      "questions": 22,
+      "answerable": 18,
+      "out_of_scope": 4,
+      "answer_accuracy": 88.9,
+      "source_found": 94.4,
+      "source_page_found": 88.9,
+      "out_of_scope_refused": 75.0,
+      "overall": 86.4,
+      "avg_seconds": 0.01,
+      "by_type": {
+        "easy": "16/17",
+        "roman-urdu": "0/1",
+        "out-of-scope": "3/4"
+      }
+    },
+    "tuning": {
+      "questions": 48,
+      "answerable": 41,
+      "out_of_scope": 7,
+      "answer_accuracy": 97.6,
+      "source_found": 100.0,
+      "source_page_found": 100.0,
+      "out_of_scope_refused": 85.7,
+      "overall": 95.8,
+      "avg_seconds": 0.01,
+      "by_type": {
+        "easy": "34/34",
+        "follow-up": "2/2",
+        "roman-urdu": "3/3",
+        "urdu": "1/1",
+        "out-of-scope": "6/7",
+        "two-documents": "0/1"
+      }
+    },
+    "cost_per_1000_questions": "0 (offline)"
+  },
+  "holdout": [
+    {
+      "q": "What happens if I come late three times in a month?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees who arrive more than 15 minutes late three times in a calendar month will have half a day deducted from casual leave.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.02,
+      "engine": "offline"
+    },
+    {
+      "q": "How many days of paternity leave are there?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Paternity leave 7 days paid 7 days paid -.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do I need a medical certificate for sick leave?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Sick leave of more than 2 consecutive days requires a medical certificate.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Is hospitalisation covered by insurance?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Hospitalisation is covered by group health insurance up to PKR 500,000 per year for the employee, spouse and up to two children.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Can I accept a gift from a supplier?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Accepting gifts from suppliers worth more than PKR 5,000 is not allowed and must be reported to HR.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How do I report harassment?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Concerns can be reported confidentially to the Harassment Inquiry Committee at conduct@nimbus-appliances.example or to any HR business partner.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the notice period for managers?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "After confirmation, the notice period is 1 month for staff and 2 months for managers.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Kya main ghar se kaam kar sakta hoon?",
+      "type": "roman-urdu",
+      "kb": "hr",
+      "correct": false,
+      "source_ok": false,
+      "page_ok": false,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do we get a bonus at Eid?",
+      "type": "out-of-scope",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Which app do I need for two-step sign-in?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "The Microsoft Authenticator app is required for two-step sign-in.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What should I do with a suspicious email?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Forward suspicious emails to phishing@nimbus-appliances.example and then delete them.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What are the IT helpdesk hours?",
+      "type": "easy",
+      "kb": "it",
+      "correct": false,
+      "source_ok": true,
+      "page_ok": false,
+      "not_found": false,
+      "answer": "IT aims to respond within 4 working hours and provides a loaner laptop when a repair takes more than 1 working day.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How do I book a meeting room?",
+      "type": "out-of-scope",
+      "kb": "it",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How much does the air fryer cost?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "The Air Fryer 5.5 L cooks with up to 85% less oil and has 8 presets. NAF-55 Nimbus Air Fryer 5.5 L 24,999 1 year.",
+      "sources": [
+        "Product_Catalogue.pdf p.2",
+        "Product_Catalogue.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Is installation free for air conditioners?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Standard installation (up to 10 feet of copper pipe) is free in Lahore, Karachi and Islamabad.",
+      "sources": [
+        "Product_Catalogue.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Can I return an AC after it has been installed?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Installed appliances (air conditioners, water dispensers) cannot be returned unless they are faulty.",
+      "sources": [
+        "Refund_and_Warranty_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How long will delivery take to Lahore?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Orders are delivered within 2-4 working days in Lahore, Karachi, Islamabad and Rawalpindi, and within 5-7 working days to other cities.",
+      "sources": [
+        "Shipping_and_Delivery_Policy.docx p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What happens if I'm not home when the rider comes?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "If nobody is available, the rider tries again the next working day.",
+      "sources": [
+        "Shipping_and_Delivery_Policy.docx p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do you give discounts for bulk orders?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Orders of 10 or more units qualify for corporate pricing.",
+      "sources": [
+        "Company_FAQ.txt p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Does the warranty cover damage from voltage fluctuation?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "The warranty does not cover damage from voltage fluctuation without a stabiliser (except inverter models rated for low voltage), physical damage, or repairs by anyone other than a Nimbus-authorised technician.",
+      "sources": [
+        "Refund_and_Warranty_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do you have a store in Peshawar?",
+      "type": "out-of-scope",
+      "kb": "products",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the energy rating of the washing machine?",
+      "type": "out-of-scope",
+      "kb": "products",
+      "correct": false,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": false,
+      "answer": "The WashPro 8 kg front load washer offers 15 programs including Quick 15-minute wash and steam hygiene.",
+      "sources": [
+        "Product_Catalogue.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    }
+  ],
+  "tuning": [
+    {
+      "q": "How many casual leaves do I get?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees are entitled to 10 casual leaves per calendar year.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "And for part-time staff?",
+      "type": "follow-up",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Part-time staff receive leave on a pro-rata basis: 5 casual leaves and 4 sick leaves per calendar year, and 7 days of annual leave.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How many sick leaves do I get in a year?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees are entitled to 8 sick leaves per calendar year.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Can I carry forward my casual leave to next year?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Casual leave cannot be carried forward to the next year and cannot be encashed.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How many unused annual leave days can be carried forward?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Up to 7 unused annual leave days may be carried forward to the next year; any balance above 7 days lapses on 31 December.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What are the office hours?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Office hours are 9:00 am to 6:00 pm, Monday to Friday, with a one-hour lunch break from 1:00 pm to 2:00 pm.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What are the office hours during Ramadan?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "During Ramadan, office hours are 9:00 am to 3:00 pm.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Can I work from home?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "After confirmation, office staff may work from home up to 2 days per week with their line manager's approval.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How long is the probation period?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "New employees serve a probation period of 3 months.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the notice period after confirmation?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "After confirmation, the notice period is 1 month for staff and 2 months for managers.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the OPD medical reimbursement limit?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Confirmed employees receive outpatient (OPD) medical reimbursement of up to PKR 60,000 per year.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Within how many days do I need to submit expense claims?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Business travel and other work expenses are reimbursed when claims are submitted within 30 days of the expense, with original receipts, through the Finance portal.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the fuel allowance per kilometre?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees who use their own car for company work receive a fuel allowance of PKR 45 per kilometre, based on the mileage log approved by their manager.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How long is maternity leave?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Maternity leave 90 days paid 90 days paid -.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "When is salary paid?",
+      "type": "easy",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Salaries are paid by bank transfer on the 1st working day of each month.",
+      "sources": [
+        "HR_Policy.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Mujhe saal mein kitni casual chuttiyan milti hain?",
+      "type": "roman-urdu",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees are entitled to 10 casual leaves per calendar year.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Bimari ki chutti kitni milti hai?",
+      "type": "roman-urdu",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees are entitled to 8 sick leaves per calendar year.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "مجھے سال میں کتنی چھٹیاں ملتی ہیں؟",
+      "type": "urdu",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Employees are entitled to 10 casual leaves per calendar year.",
+      "sources": [
+        "HR_Policy.pdf p.1"
+      ],
+      "seconds": 0.02,
+      "engine": "offline"
+    },
+    {
+      "q": "Is there a gym membership benefit?",
+      "type": "out-of-scope",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the dress code on Fridays?",
+      "type": "out-of-scope",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Who is the CEO of the company?",
+      "type": "out-of-scope",
+      "kb": "hr",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How do I reset my password?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Reset a forgotten password yourself at the self-service portal: https://reset.nimbus-appliances.example.",
+      "sources": [
+        "IT_Help_Guide.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How long does my password need to be?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Passwords must be at least 12 characters and must be changed every 90 days.",
+      "sources": [
+        "IT_Help_Guide.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How often do I have to change my password?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Passwords must be at least 12 characters and must be changed every 90 days.",
+      "sources": [
+        "IT_Help_Guide.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How do I connect to the VPN from home?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "To connect to company systems from home, install FortiClient VPN from the Software Center and connect to vpn.nimbus-appliances.example with your normal login.",
+      "sources": [
+        "IT_Help_Guide.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "My laptop is broken. What should I do?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "If your laptop is slow, broken or damaged, raise a helpdesk ticket.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "I lost my laptop. How soon must I report it?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "A lost or stolen laptop must be reported to IT within 24 hours so it can be locked remotely.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the helpdesk phone extension?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Raise a ticket by emailing helpdesk@nimbus-appliances.example or by calling extension 250.",
+      "sources": [
+        "IT_Help_Guide.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Can I use a USB drive on my laptop?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "USB storage devices are blocked on company laptops.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Can I print in colour?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Colour printing requires manager approval.",
+      "sources": [
+        "IT_Help_Guide.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Where do I get the guest Wi-Fi password?",
+      "type": "easy",
+      "kb": "it",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Visitors use 'Nimbus-Guest'; the daily guest password is available at reception.",
+      "sources": [
+        "IT_Help_Guide.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How do I request a second monitor?",
+      "type": "out-of-scope",
+      "kb": "it",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the company's Netflix account password?",
+      "type": "out-of-scope",
+      "kb": "it",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the warranty on the AirCool AC?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "NA-150i Nimbus AirCool 1.5 Ton Inverter AC 189,000 10 years compressor, 2 years parts.",
+      "sources": [
+        "Product_Catalogue.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What warranty does the AirCool 1.5 ton AC have, and how do I make a warranty claim?",
+      "type": "two-documents",
+      "kb": "products",
+      "correct": false,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "NA-150i Nimbus AirCool 1.5 Ton Inverter AC 189,000 10 years compressor, 2 years parts.",
+      "sources": [
+        "Product_Catalogue.pdf p.1"
+      ],
+      "seconds": 0.02,
+      "engine": "offline"
+    },
+    {
+      "q": "How long does a refund take?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Approved refunds are processed within 10 working days to the original payment method.",
+      "sources": [
+        "Refund_and_Warranty_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "And for cash on delivery orders?",
+      "type": "follow-up",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Cash on delivery (COD) orders are refunded by bank transfer to an account in the customer's name.",
+      "sources": [
+        "Refund_and_Warranty_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "How much is delivery?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Delivery is free for orders above PKR 20,000.",
+      "sources": [
+        "Shipping_and_Delivery_Policy.docx p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do you offer installments?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "All products above PKR 50,000 can be bought on 0% installments for 12 months through partner banks (credit cards of HBL, Meezan Bank and Bank Alfalah).",
+      "sources": [
+        "Product_Catalogue.pdf p.2"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Is cash on delivery available for big orders?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Cash on delivery (COD) is available for orders up to PKR 150,000.",
+      "sources": [
+        "Shipping_and_Delivery_Policy.docx p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "My fridge arrived damaged. How quickly do I need to report it?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "If a product arrives damaged or you receive the wrong item, report it within 48 hours of delivery by calling our helpline or emailing support@nimbus-appliances.example with photos of the product and packaging.",
+      "sources": [
+        "Refund_and_Warranty_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the price of the 18 cu ft refrigerator?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "NF-18 Nimbus FrostFree Refrigerator 18 cu ft 139,500 10 years compressor, 1 year parts.",
+      "sources": [
+        "Product_Catalogue.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What are your customer support hours?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Customer support is available Monday to Saturday, 9:00 am to 8:00 pm, on the helpline 0800-64662 (toll free) and by email at support@nimbus-appliances.example.",
+      "sources": [
+        "Company_FAQ.txt p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Refund kitne din mein milta hai?",
+      "type": "roman-urdu",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Approved refunds are processed within 10 working days to the original payment method.",
+      "sources": [
+        "Refund_and_Warranty_Policy.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Where is your head office?",
+      "type": "easy",
+      "kb": "products",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "Our head office is at 42-C Gulberg III, Lahore.",
+      "sources": [
+        "Company_FAQ.txt p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do you sell televisions?",
+      "type": "out-of-scope",
+      "kb": "products",
+      "correct": true,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": true,
+      "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
+      "sources": [],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "Do you ship to Dubai?",
+      "type": "out-of-scope",
+      "kb": "products",
+      "correct": false,
+      "source_ok": null,
+      "page_ok": null,
+      "not_found": false,
+      "answer": "Delivery is free for orders above PKR 20,000.",
+      "sources": [
+        "Shipping_and_Delivery_Policy.docx p.None"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    },
+    {
+      "q": "What is the salary range for grade G3?",
+      "type": "easy",
+      "kb": "management",
+      "correct": true,
+      "source_ok": true,
+      "page_ok": true,
+      "not_found": false,
+      "answer": "G3 Officer, team lead 110,000 180,000.",
+      "sources": [
+        "Salary_Bands_2026.pdf p.1"
+      ],
+      "seconds": 0.01,
+      "engine": "offline"
+    }
+  ]
+}
