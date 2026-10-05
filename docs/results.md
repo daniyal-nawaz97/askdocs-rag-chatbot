@@ -1,4 +1,4 @@
-# Measured results (2026-09-30)
+# Measured results (2026-10-05)
 
 Engine: **Offline answers (quoted from documents) + hybrid search**. Cost per 1,000 questions: 0 (offline).
 
@@ -16,7 +16,7 @@ Two question sets on the fictitious Nimbus demo documents:
 | Correct source page found | 88.9% |
 | Out-of-scope questions correctly refused (4) | **75.0%** |
 | Overall (22 questions) | 86.4% |
-| Average response time | 0.01 s |
+| Average response time | 0.04 s |
 
 | Question type | Correct |
 |---|---|
@@ -33,7 +33,7 @@ Two question sets on the fictitious Nimbus demo documents:
 | Correct source page found | 100.0% |
 | Out-of-scope questions correctly refused (7) | **85.7%** |
 | Overall (48 questions) | 95.8% |
-| Average response time | 0.01 s |
+| Average response time | 0.03 s |
 
 | Question type | Correct |
 |---|---|

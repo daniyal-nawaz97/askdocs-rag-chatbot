@@ -1,6 +1,6 @@
 {
   "summary": {
-    "date": "2026-09-30",
+    "date": "2026-10-05",
     "engine": "Offline answers (quoted from documents) + hybrid search",
     "headline": {
       "questions": 22,
@@ -11,7 +11,7 @@
       "source_page_found": 88.9,
       "out_of_scope_refused": 75.0,
       "overall": 86.4,
-      "avg_seconds": 0.01,
+      "avg_seconds": 0.04,
       "by_type": {
         "easy": "16/17",
         "roman-urdu": "0/1",
@@ -27,7 +27,7 @@
       "source_page_found": 88.9,
       "out_of_scope_refused": 75.0,
       "overall": 86.4,
-      "avg_seconds": 0.01,
+      "avg_seconds": 0.04,
       "by_type": {
         "easy": "16/17",
         "roman-urdu": "0/1",
@@ -43,7 +43,7 @@
       "source_page_found": 100.0,
       "out_of_scope_refused": 85.7,
       "overall": 95.8,
-      "avg_seconds": 0.01,
+      "avg_seconds": 0.03,
       "by_type": {
         "easy": "34/34",
         "follow-up": "2/2",
@@ -68,7 +68,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.02,
+      "seconds": 0.09,
       "engine": "offline"
     },
     {
@@ -83,7 +83,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.05,
       "engine": "offline"
     },
     {
@@ -98,7 +98,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.07,
       "engine": "offline"
     },
     {
@@ -113,7 +113,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.08,
       "engine": "offline"
     },
     {
@@ -128,7 +128,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -143,7 +143,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -158,7 +158,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -171,7 +171,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -184,7 +184,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -199,7 +199,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -214,7 +214,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -229,7 +229,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -242,7 +242,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -258,7 +258,7 @@
         "Product_Catalogue.pdf p.2",
         "Product_Catalogue.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.05,
       "engine": "offline"
     },
     {
@@ -273,7 +273,7 @@
       "sources": [
         "Product_Catalogue.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -288,7 +288,7 @@
       "sources": [
         "Refund_and_Warranty_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -303,7 +303,7 @@
       "sources": [
         "Shipping_and_Delivery_Policy.docx p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -318,7 +318,7 @@
       "sources": [
         "Shipping_and_Delivery_Policy.docx p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -333,7 +333,7 @@
       "sources": [
         "Company_FAQ.txt p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -348,7 +348,7 @@
       "sources": [
         "Refund_and_Warranty_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.05,
       "engine": "offline"
     },
     {
@@ -361,7 +361,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -376,7 +376,7 @@
       "sources": [
         "Product_Catalogue.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     }
   ],
@@ -393,7 +393,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.06,
       "engine": "offline"
     },
     {
@@ -408,7 +408,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.07,
       "engine": "offline"
     },
     {
@@ -423,7 +423,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -438,7 +438,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -453,7 +453,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.05,
       "engine": "offline"
     },
     {
@@ -468,7 +468,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -483,7 +483,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -498,7 +498,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -513,7 +513,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -528,7 +528,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -543,7 +543,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -558,7 +558,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -573,7 +573,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -588,7 +588,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -603,7 +603,7 @@
       "sources": [
         "HR_Policy.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -618,7 +618,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -633,7 +633,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -648,7 +648,7 @@
       "sources": [
         "HR_Policy.pdf p.1"
       ],
-      "seconds": 0.02,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -661,7 +661,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -674,7 +674,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -687,7 +687,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -702,7 +702,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -717,7 +717,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -732,7 +732,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -747,7 +747,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -762,7 +762,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -777,7 +777,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -792,7 +792,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -807,7 +807,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -822,7 +822,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -837,7 +837,7 @@
       "sources": [
         "IT_Help_Guide.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -850,7 +850,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -863,7 +863,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -878,7 +878,7 @@
       "sources": [
         "Product_Catalogue.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -893,7 +893,7 @@
       "sources": [
         "Product_Catalogue.pdf p.1"
       ],
-      "seconds": 0.02,
+      "seconds": 0.06,
       "engine": "offline"
     },
     {
@@ -908,7 +908,7 @@
       "sources": [
         "Refund_and_Warranty_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -923,7 +923,7 @@
       "sources": [
         "Refund_and_Warranty_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -938,7 +938,7 @@
       "sources": [
         "Shipping_and_Delivery_Policy.docx p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.02,
       "engine": "offline"
     },
     {
@@ -953,7 +953,7 @@
       "sources": [
         "Product_Catalogue.pdf p.2"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -968,7 +968,7 @@
       "sources": [
         "Shipping_and_Delivery_Policy.docx p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -983,7 +983,7 @@
       "sources": [
         "Refund_and_Warranty_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.05,
       "engine": "offline"
     },
     {
@@ -998,7 +998,7 @@
       "sources": [
         "Product_Catalogue.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.04,
       "engine": "offline"
     },
     {
@@ -1013,7 +1013,7 @@
       "sources": [
         "Company_FAQ.txt p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -1028,7 +1028,7 @@
       "sources": [
         "Refund_and_Warranty_Policy.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -1043,7 +1043,7 @@
       "sources": [
         "Company_FAQ.txt p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -1056,7 +1056,7 @@
       "not_found": true,
       "answer": "I couldn't find this in the documents. You can contact HR at hr@nimbus-appliances.example or extension 210.",
       "sources": [],
-      "seconds": 0.01,
+      "seconds": 0.03,
       "engine": "offline"
     },
     {
@@ -1071,7 +1071,7 @@
       "sources": [
         "Shipping_and_Delivery_Policy.docx p.None"
       ],
-      "seconds": 0.01,
+      "seconds": 0.05,
       "engine": "offline"
     },
     {
@@ -1086,7 +1086,7 @@
       "sources": [
         "Salary_Bands_2026.pdf p.1"
       ],
-      "seconds": 0.01,
+      "seconds": 0.06,
       "engine": "offline"
     }
   ]

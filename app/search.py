@@ -154,6 +154,10 @@ class Index:
         n = max(1, len(rows))
         self.idf = {w: math.log(1 + n / c) for w, c in df.items()}
 
+    def knows(self, text: str) -> bool:
+        """True if any meaningful word of the text appears in this knowledge base."""
+        return any(g & self.idf.keys() for g in query_groups(text))
+
     def group_weights(self, groups):
         """Rare words matter more than common ones; bare numbers matter little."""
         return [0.3 if all(t.isdigit() for t in g) else max(self.idf.get(t, 2.5) for t in g) for g in groups]
@@ -226,5 +230,11 @@ def standalone_query(question: str, history: list[str]) -> str:
         return question
     content = [t for t in tokens(expand_query(question))]
     if len(content) <= 4 or FOLLOW_UP.search(question):
-        return f"{question} {history[-1]}"
+        prev = history[-1]
+        q_toks = set(content)
+        if q_toks & set(tokens(expand_query(prev))):
+            # same subject, new detail ("How many casual leaves?" -> "and sick leaves?"): drop the old detail words
+            prev = " ".join(w for w in re.findall(r"\S+", prev)
+                            if not set(tokens(expand_query(w))) - q_toks)
+        return f"{question} {prev}"
     return question

@@ -91,7 +91,9 @@ def offline_answer(question: str, hits: list[dict], focus: str | None = None):
     if focus_groups:
         # a follow-up ("And for part-time staff?") must be answered by a sentence about what was just asked
         on_topic = [c for c in cands if any(g & set(search.tokens(c[1])) for g in focus_groups)]
-        cands = on_topic or cands
+        literal = set(search.tokens(focus))  # the exact words they used beat synonyms ("claim" over "warranty")
+        exact = [c for c in on_topic if literal & set(search.tokens(c[1]))]
+        cands = exact or on_topic or cands
     if not cands:
         return None, []
     cands.sort(key=lambda c: -c[0])
@@ -143,13 +145,52 @@ def rewrite_question(question: str, history: list[dict]) -> str:
         return search.standalone_query(question, [m["content"] for m in history if m["role"] == "user"])
 
 
+SMALL_TALK = [
+    (r"how are (you|u)|how r u|how('?s| is) it going|kya hal|kia hal|kaise ho|kese ho|kaisay ho|aap kaise", "I'm doing well, thank you!"),
+    (r"^(hi+|hello+|hey+|salam|salaam|a?s+alam\w*( ?[ou])? ?(alaikum|alykum|alaykum)|asalam|aoa|good (morning|afternoon|evening))\b", "Hello!"),
+    (r"^(thanks?|thank you|thx|shukriya|jazakallah|great|ok(ay)?|nice|perfect|got it|cool)\b", "You're welcome!"),
+    (r"^(bye|goodbye|allah hafiz|khuda hafiz|see you)\b", "Goodbye! Come back any time."),
+    (r"who are you|what are you|what can you do|tum kaun|aap kaun|are you (a )?(bot|human|ai)", "I'm an assistant that answers from your company documents."),
+]
+
+
+def small_talk(question: str, settings: dict) -> str | None:
+    """Greetings, thanks and 'how are you' get a friendly reply instead of a document search."""
+    q = re.sub(r"[^\w\s']", " ", question.lower()).strip()
+    q = re.sub(r"\s+(ha|na|yar|yaar|bro|please|pls|ji|sir|madam)$", "", re.sub(r"\s+", " ", q))
+    if len(q.split()) > 7:
+        return None
+    for pat, reply in SMALL_TALK:
+        if re.search(pat, q):
+            if search.tokens(search.expand_query(re.sub(pat, " ", q))):
+                return None  # "hi, how many leaves do I get?" is a real question
+            name = settings.get("bot_name") or "the assistant"
+            return f"{reply} I'm {name}. Ask me anything about the documents in this knowledge base, for example a policy, a product or a procedure, and I'll answer with the source."
+    return None
+
+
 def stream_answer(question: str, history: list[dict], kb_id: int, settings: dict, delay: float = 0.012):
     """Yields events: {'type': 'sources'|'token'|'done', ...}"""
     t0 = time.time()
     user_history = [m["content"] for m in history if m["role"] == "user"]
     use_ai = ai_enabled()
-    query = rewrite_question(question, history) if use_ai else search.standalone_query(question, user_history)
-    hits = search.get_index(kb_id).search(query, k=5)
+    index = search.get_index(kb_id)
+    reply = small_talk(question, settings)
+    if reply:
+        yield from _emit(reply, delay)
+        yield {"type": "done", "not_found": False, "sources": [], "engine": "chat", "latency_ms": int((time.time() - t0) * 1000), "text": reply}
+        return
+    if use_ai:
+        query = rewrite_question(question, history)
+    else:
+        query = question
+        borrowed = search.standalone_query(question, user_history)
+        # borrow the previous question's words only for a real follow-up about something in these documents,
+        # and only when the question doesn't already find its answer on its own
+        if borrowed != question and index.knows(question) and (
+                search.FOLLOW_UP.search(question) or not is_found(index.search(question, k=5))):
+            query = borrowed
+    hits = index.search(query, k=5)
     fallback = settings.get("fallback_message") or "I couldn't find this in the documents."
     contact = settings.get("human_contact")
     not_found_text = f"{fallback} You can contact {contact}." if contact else fallback
