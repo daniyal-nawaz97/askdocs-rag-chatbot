@@ -645,7 +645,7 @@ def _whatsapp_reply(to: str, question: str):
     db.execute("INSERT INTO messages(conversation_id, role, content, kb_id, channel, created_at) VALUES(?,?,?,?,?,?)", (cid, "user", question, kb["id"], "whatsapp", now))
     db.execute("INSERT INTO messages(conversation_id, role, content, question, sources_json, not_found, latency_ms, engine, kb_id, channel, created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                (cid, "assistant", a["text"], question, json.dumps(a.get("sources", [])), int(bool(a.get("not_found"))), a.get("latency_ms"), a.get("engine"), kb["id"], "whatsapp", db.now()))
-    body = re.sub(r"\[\d+\]", "", a["text"]).strip()
+    body = re.sub(r"\*\*(.+?)\*\*", r"*\1*", re.sub(r"\s*\[\d+\]", "", a["text"])).strip()  # WhatsApp bold is *one star*
     if a.get("sources"):
         s = a["sources"][0]
         link = f"{PUBLIC_BASE_URL}/api/public/documents/{s['doc_id']}/file" + (f"#page={s['page']}" if s.get("page") else "") if PUBLIC_BASE_URL else ""

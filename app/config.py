@@ -18,7 +18,18 @@ STATIC_DIR = BASE_DIR / "static"
 
 # Groq (free tier). Without a key, answers are quoted directly from the best matching passage.
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
-GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
+# used when the main model is busy (each model has its own free-tier limit)
+GROQ_FALLBACK_MODEL = os.getenv("GROQ_FALLBACK_MODEL", "openai/gpt-oss-20b")
+
+
+def groq_options(model: str) -> dict:
+    """Reasoning models think before answering; keep that short so replies are fast."""
+    if "gpt-oss" in model:
+        return {"reasoning_effort": "low"}
+    if "qwen" in model:
+        return {"reasoning_effort": "none"}
+    return {}
 
 # Local embedding model for meaning-based search (downloaded once, ~70 MB). Set USE_EMBEDDINGS=0 to use keyword search only.
 USE_EMBEDDINGS = os.getenv("USE_EMBEDDINGS", "1") != "0"

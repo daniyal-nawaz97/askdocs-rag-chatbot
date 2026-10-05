@@ -47,6 +47,7 @@
   const kb = params.get("kb") || "";
   const body = document.getElementById("body");
   let cid = null, busy = false, cfg = {};
+  const fmt = (s) => esc(s.replace(/\s*\[\d+\]/g, "")).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   function add(cls, html) { const d = document.createElement("div"); d.className = "m " + cls; d.innerHTML = html; body.appendChild(d); body.scrollTop = 1e9; return d; }
   fetch("/api/public/config?kb=" + encodeURIComponent(kb)).then((r) => r.json()).then((c) => {
@@ -76,9 +77,9 @@
         while ((i = buf.indexOf("\n\n")) >= 0) {
           const ev = JSON.parse(buf.slice(0, i).replace(/^data: /, "")); buf = buf.slice(i + 2);
           if (ev.type === "meta") cid = ev.conversation_id;
-          if (ev.type === "token") { text += ev.text; bot.innerHTML = esc(text.replace(/\[\d+\]/g, "")); body.scrollTop = 1e9; }
+          if (ev.type === "token") { text += ev.text; bot.innerHTML = fmt(text); body.scrollTop = 1e9; }
           if (ev.type === "done") {
-            let html = esc((ev.text || text).replace(/\[\d+\]/g, "").trim());
+            let html = fmt((ev.text || text).trim());
             if (ev.not_found) { bot.classList.add("nf"); html += `<br><button class="human" data-mid="${ev.message_id}">Talk to our team</button>`; }
             else if (ev.sources.length) html += `<div class="src">${ev.sources.map((s) => `<a href="/api/public/documents/${s.doc_id}/file${s.page ? "#page=" + s.page : ""}" target="_blank">📄 ${esc(s.filename)}${s.page ? " p." + s.page : ""}</a>`).join("")}</div>`;
             bot.innerHTML = html;

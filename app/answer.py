@@ -7,7 +7,7 @@ import re
 import time
 
 from . import search
-from .config import GROQ_API_KEY, GROQ_MODEL, ai_enabled
+from .config import GROQ_API_KEY, GROQ_FALLBACK_MODEL, GROQ_MODEL, ai_enabled, groq_options
 
 log = logging.getLogger("askdocs.answer")
 
@@ -17,6 +17,21 @@ MIN_COS = 0.6
 QUANTITY = re.compile(r"\b(how many|how much|how long|how soon|how quickly|when|what time|kitni|kitne|kitna|kab|price|cost|limit|minimum|maximum)\b|کتنی|کتنے", re.I)
 
 _client = None
+
+
+CITE_FIX = str.maketrans({"【": "[", "】": "]", "［": "[", "］": "]"})  # some models cite as 【1】
+
+
+def _create(**kw):
+    """Chat completion with the main model, then the fallback model if the first is busy or rate-limited."""
+    models = [GROQ_MODEL] + ([GROQ_FALLBACK_MODEL] if GROQ_FALLBACK_MODEL and GROQ_FALLBACK_MODEL != GROQ_MODEL else [])
+    for i, model in enumerate(models):
+        try:
+            return _groq().chat.completions.create(model=model, **groq_options(model), **kw)
+        except Exception as e:
+            if i == len(models) - 1:
+                raise
+            log.warning("Groq model %s failed (%s), trying %s", model, str(e)[:80], models[i + 1])
 
 
 def _groq():
@@ -136,9 +151,9 @@ def rewrite_question(question: str, history: list[dict]) -> str:
         return question
     try:
         convo = "\n".join(f"{m['role']}: {m['content'][:300]}" for m in history[-6:])
-        r = _groq().chat.completions.create(model=GROQ_MODEL, temperature=0, max_tokens=60, messages=[
+        r = _create(temperature=0, max_tokens=400, messages=[
             {"role": "system", "content": REWRITE}, {"role": "user", "content": f"{convo}\nuser: {question}"}])
-        q = r.choices[0].message.content.strip().strip('"')
+        q = (r.choices[0].message.content or "").strip().strip('"')
         return q or question
     except Exception as e:
         log.warning("rewrite failed: %s", e)
@@ -241,10 +256,10 @@ def _ai_stream(question, history, hits, settings, not_found_text, t0, delay):
     for m in history[-6:]:
         msgs.append({"role": m["role"], "content": m["content"][:800]})
     msgs.append({"role": "user", "content": f"Passages:\n{passages}\n\nQuestion: {question}"})
-    stream = _groq().chat.completions.create(model=GROQ_MODEL, temperature=0.1, max_tokens=600, stream=True, messages=msgs)
+    stream = _create(temperature=0.1, max_tokens=1500, stream=True, messages=msgs)
     buf, started, full = "", False, ""
     for ev in stream:
-        piece = ev.choices[0].delta.content or ""
+        piece = (ev.choices[0].delta.content or "").translate(CITE_FIX) if ev.choices else ""
         if not piece:
             continue
         full += piece
