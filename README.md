@@ -2,6 +2,9 @@
 
 **A chatbot that knows your company's documents, answers from them, and always shows where the answer came from.**
 
+### 🔗 Live demo: [askdocs.8-234-95-72.sslip.io](https://askdocs.8-234-95-72.sslip.io)
+Open the link and click **Try the demo**, no sign-up needed.
+
 It reads a company's PDFs, Word files, FAQs, policies and price lists. Staff or customers ask in plain language (English, Urdu or Roman Urdu) and get short answers with the source page. If the answer isn't in the documents, it says so instead of guessing.
 
 ![Chat with sources](docs/screenshots/chat.png)
